@@ -1,4 +1,3 @@
-import { useState } from "react";
 import HeaderBar from "./headerBar";
 
 function Publications() {
