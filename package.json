@@ -1,5 +1,5 @@
 {
-  "name": "myio",
+  "name": "aboyle",
   "homepage": "https://aboyleTD.github.io/aboyle.github.io",
   "private": true,
   "version": "0.0.0",
@@ -13,8 +13,11 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "@tailwindcss/vite": "^4.2.4",
     "react": "^19.2.5",
-    "react-dom": "^19.2.5"
+    "react-dom": "^19.2.5",
+    "react-router-dom": "^7.14.2",
+    "tailwindcss": "^4.2.4"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

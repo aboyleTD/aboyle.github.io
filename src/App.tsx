@@ -1,23 +1,20 @@
-import { useState } from 'react'
+import { HashRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
 
+import Main from './components/Main'
+import Publications from './components/publications'
+import CvPage from './components/cvPage'
+
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div>
-      <h1>Under construction</h1>
-      <div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </div>
-    </div>
-  )
-}
+      <HashRouter>
+          <Routes>
+              <Route path="/" element={<Main />} />
+              <Route path="/publications" element={<Publications />} />
+              <Route path="/cv" element={<CvPage />} />
+          </Routes>
+      </HashRouter>
+  );
 
+}
 export default App
