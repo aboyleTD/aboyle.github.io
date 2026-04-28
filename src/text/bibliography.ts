@@ -8,7 +8,7 @@ export const bib = `@inproceedings{boyle-etal-2025-cafga,
     editor = {Habernal, Ivan  and
       Schulam, Peter  and
       Tiedemann, Jörg},
-    booktitle = "Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing: System Demonstrations",
+    booktitle = "In Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing: System Demonstrations",
     month = "nov",
     year = "2025",
     address = "Suzhou, China",
@@ -21,11 +21,25 @@ export const bib = `@inproceedings{boyle-etal-2025-cafga,
       },
     @inproceedings{boyle2024itotinteractivecustomizedtreeofthought,
       title={iToT: An Interactive System for Customized Tree-of-Thought Generation}, 
-      author={Alan Boyle and Isha Gupta and Sebastian Hönig and Lukas Mautner and Kenza Amara and Furui Cheng and Mennatallah El-Assady},
+      author={Alan David Boyle and Isha Gupta and Sebastian Hönig and Lukas Mautner and Kenza Amara and Furui Cheng and Mennatallah El-Assady},
       year={2024},
-      booktitle={NLVIZ Workshop at IEEE VIS},
+      booktitle={At NLVIZ Workshop at IEEE VIS},
       eprint={2409.00413},
       archivePrefix={arXiv},
       primaryClass={cs.HC},
       url={https://ieeevis.org/year/2024/program/paper_w-nlviz-1019.html}, 
 }`
+
+const cafgaLinks = new Map<string, string>([
+    ["Paper", "https://aclanthology.org/2025.emnlp-demos.32/"],
+    ["Repository", "https://github.com/explain-llm/CafGa"],
+    ["Demo", "https://cafga.ivia.ch/"],
+    // ["Poster", "https://your-website.com/cafga-slides.pdf"]
+]);
+
+const itotLinks = new Map<string, string>([
+    ["Paper", "https://ieeevis.org/year/2024/program/paper_w-nlviz-1019.html"],
+    ["Video", "https://www.youtube.com/watch?v=4pV0SlCNEh4"],
+]);
+
+export const links = [cafgaLinks, itotLinks];

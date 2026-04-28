@@ -14,7 +14,7 @@ const Button = (props: PropsWithChildren<Props>) => {
     switch (props.style) {
         case "HeaderBar":
             orderClasses =
-                'hover:text-blue-700 font-medium disabled:bg-neutral-400';
+                'hover:text-blue-500 font-medium disabled:bg-neutral-400';
             break;
         
         default:

@@ -1,15 +1,18 @@
 import {BibEntry} from "bibtex";
 import type { JSX } from "react";
+import "./citation.css";
 
 
 interface CitationProps {
     bibEntry : BibEntry;
+    linkMap: Map<string, string>;
 }
 
 
 function Citation(props: CitationProps) {
     const bibEntry = props.bibEntry;
-    
+    const linkMap = props.linkMap;
+
     const handleWrapperStringField = (field : any) : string[] => {
         switch (field.type) {
             case "quotedstringwrapper":
@@ -18,52 +21,54 @@ function Citation(props: CitationProps) {
                 return field.data;
         }
     }
-    const handleTitle = (data: string[], rowType: string, URL?: string) : JSX.Element => {
-        console.log("Handling title field:", data);
-        const isBookTitle = rowType === "booktitle";
-        const handleOnClick = URL ? () => window.open(URL, "_blank") : undefined;
+    const handleTitle = (field: any, URL?: string) : JSX.Element => {
+        const data = handleWrapperStringField(field);
+        const style = " leading-none " + (URL ? " cursor-pointer text-lg title" : "");
         return (
-            <p style={isBookTitle ? {  fontStyle: "italic" } : { color : "white", fontWeight: "bold"}} onClick={handleOnClick}>{data.join(" ")}</p>
+            <a className={`${style}`} href={URL} target="_blank">{data.join(" ")}</a>
+        )
+    }
+    const handleBookTitle = (field : any) : JSX.Element => {
+        const data = handleWrapperStringField(field);
+        return (
+            <p className="italic leading-none font-thin">{data.join(" ")}</p>
         )
     }
     const handleAuthors = (field : any) : JSX.Element => {
         const authors = field.authors$;
         const lastIndex = authors.length - 1;
         return (
-            <span className="inline">
+            <span className="inline leading-none author font-light">
                 {authors.map((author: any, index: number) => (
                    <>
-                   {author.firstNames$[0] == "Alan" ? <strong key={index} style={index == 0 ? { textDecoration: "underline", fontWeight: "bold" } : { }}>{author.firstNames$.join(" ")} {author.lastNames$.join("")}</strong> : <>{index == lastIndex ? " and " : ""}{author.firstNames$.join(" ")} {author.lastNames$.join("")}</>}{index < lastIndex ? ", " : ""}
+                   {author.firstNames$[0] == "Alan" ? <span key={index} className="font-normal underline" >{author.firstNames$.map((name: string, index : number) => index == 0 ? name : name[0].charAt(0)+".").join(" ")} {author.lastNames$.join("")}</span> : <>{index == lastIndex ? " and " : ""}{author.firstNames$.join(" ")} {author.lastNames$.join("")}</>}{index < lastIndex ? ", " : ""}
                    </>
                 ))}
 
             </span>        )
     }
-    const fieldToHtml = (field: any, rowType: string, URL?: string): JSX.Element => {
-        if (field === undefined) {
-            return (<></>);
-        }
-        console.log("Field type:", field.type);
-        switch (rowType) {
-            case "authors":
-                return handleAuthors(field);
-            case "title":
-            case "booktitle":
-                return handleTitle(handleWrapperStringField(field), rowType, URL);
-            default:
-                return <p>{field.toString()}</p>;
-        }
-    }
 
     const URL = handleWrapperStringField(bibEntry.getField("url")).join("");
-    console.log("URL field:", URL);
-    console.log("Rendering citation for entry:", bibEntry);
+    const date = handleWrapperStringField(bibEntry.getField("year"))[0]
 
     return (
-        <div className="flex flex-col gap-0 items-start justify-start">
-            {fieldToHtml(bibEntry.getField("title"), "title", URL)} <br />
-            {fieldToHtml(bibEntry.getField("author"), "authors")} <br />
-            {fieldToHtml(bibEntry.getField("booktitle"), "booktitle")}
+        <div className="flex flex-col items-start justify-start w-full h-fit">
+            <div className="flex flex-row justify-between w-full">
+                {handleTitle(bibEntry.getField("title"), URL)}
+                <p className="date leading-none font-thin text-3xl">{date}</p>
+            </div>
+            <div className="mt-[-7px] w-5/6 h-fit">
+                {handleAuthors(bibEntry.getField("author"))}
+                {handleBookTitle(bibEntry.getField("booktitle"))}
+                <div className="mt-2 h-fit flex flex-row gap-2">
+                {Array.from(linkMap.entries()).map(([label, url]) => (
+                    <a key={label} href={url} target="_blank" className="border-1 px-2 text-sm rounded-lg hover:invert transition duration-200 ease-in-out">
+                        {label}
+                    </a>
+                ))}
+            </div>
+            </div>
+            
         </div>
     );
 }

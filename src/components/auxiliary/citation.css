@@ -1,0 +1,11 @@
+
+.title {
+        color: var(--text-h);
+}
+.author {
+        color: var(--authors);
+}
+
+.date {
+        color: var(--pubdate);
+}
