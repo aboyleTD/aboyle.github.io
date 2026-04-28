@@ -14,6 +14,9 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.2.4",
+    "bibtex": "^0.9.0",
+    "bibtex-parser-js": "^0.0.2",
+    "citation-js": "^0.7.22",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
     "react-router-dom": "^7.14.2",
