@@ -5,8 +5,8 @@ function Main() {
         <div>
             <HeaderBar />
             <div>
-            Hi, this site is currently under construction. Check back again later. 
-            <img src="/aboyle.github.io/assets/pictures/self.png" alt="Self" />
+            Hi, this site is currently under construction V3. Check back again later. 
+            <img src="/aboyle.github.io/assets/pictures/self.png" alt="Missing" />
             </div>
         </div>
 )
