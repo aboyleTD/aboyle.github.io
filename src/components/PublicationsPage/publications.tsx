@@ -1,7 +1,7 @@
-import HeaderBar from "./headerBar";
-import Citation from "./auxiliary/citation";
+import HeaderBar from "../headerBar";
+import Citation from "./citation";
 
-import { bib, links } from "../text/bibliography";
+import { bib, links } from "../../text/bibliography";
 import {BibEntry, parseBibFile} from "bibtex";
 
 function Publications() {

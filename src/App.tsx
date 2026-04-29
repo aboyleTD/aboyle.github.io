@@ -2,8 +2,8 @@ import { HashRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
 
 import Main from './components/Main'
-import Publications from './components/publications'
-import CvPage from './components/cvPage'
+import Publications from './components/PublicationsPage/publications'
+import CvPage from './components/cvPage/cvPage'
 
 function App() {
   return (
