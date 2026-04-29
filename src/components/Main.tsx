@@ -1,12 +1,12 @@
 import HeaderBar from "./headerBar";
-
+import selfImg from "../assets/pictures/self.png";
 function Main() {
     return (
         <div>
             <HeaderBar />
             <div>
-            Hi, this site is currently under construction V3. Check back again later. 
-            <img src="/aboyle.github.io/assets/pictures/self.png" alt="Missing" />
+            Hi, this site is currently under construction V3.1. Check back again later. 
+            <img src={selfImg} alt="Missing" />
             </div>
         </div>
 )
