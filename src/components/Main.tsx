@@ -1,5 +1,5 @@
 import HeaderBar from "./headerBar";
-import selfImg from "../assets/pictures/self.png";
+import selfImg from "../assets/pictures/self.jpg";
 function Main() {
     return (
         <div>
