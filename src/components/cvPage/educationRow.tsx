@@ -13,18 +13,20 @@ function EducationRow(props : EducationRowProps) {
     }
     const startDate = AbbreviateDate(entry.startDate);
     const endDate = AbbreviateDate(entry.endDate);
-    const supervisorPreamble = entry.supervisors && entry.supervisors.length > 1 ? "Supervisors:" : "Supervisor:";
+    // const supervisorPreamble = entry.supervisors && entry.supervisors.length > 1 ? "Supervisors:" : "Supervisor:";
+    const supervisorPreamble = "Supervision: ";
+    const descriptionStyle = entry.institution ? "font-normal leading-none text-lg description mb-1" : "font-light leading-none text-normal institution mt-2";
 
     return (
         <div className="flex flex-row mb-2">
             <div className="flex flex-col w-1/4 mt-2">
-                <p className="font-light text-sm">{startDate} - {endDate}</p>
-                <p className="font-light text-sm">{entry.location}</p>
+                <p className="font-light text-sm leading-none">{startDate} - {endDate}</p>
+                <p className="font-light text-sm leading-none">{entry.location}</p>
             </div>
             <div className="flex flex-col w-3/4">
-                <p className="font-normal text-lg description">{entry.description}</p>
-                <p className="font-light text-sm institution">{entry.institution}</p>
-                {entry.supervisors && <p className="font-light text-sm">{supervisorPreamble} {entry.supervisors.join(", ")}</p>}
+                <p className={descriptionStyle}>{entry.description}</p>
+                {entry.institution && <p className="font-light  leading-none text-sm institution ">{entry.institution}</p>}
+                {entry.supervisors && <p className="font-light text-sm leading-none">{supervisorPreamble} {entry.supervisors.join(", ")}</p>}
             </div>
         </div>
     )

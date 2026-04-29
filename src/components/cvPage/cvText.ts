@@ -1,6 +1,6 @@
 export interface EducationEntry {
     description: string;
-    institution: string;
+    institution?: string;
     location: string;
     startDate: string;
     endDate: string;
@@ -42,6 +42,21 @@ const mastersThesis : EducationEntry = {
     supervisors: ["IVIA Lab", "Miyao Lab"],
 }
 
+const gifuExchange : EducationEntry = {
+    description: "Completed a semester at 岐阜工業高校 (Gifu Technical High School) as part of an exchange",
+    location: "Gifu, Japan",
+    startDate: "April 2018",
+    endDate: "August 2018",
+}
+
+const waiter : EducationEntry = {
+    description: "Worked at a restaurant in Tokyo as a waiter and kitchen staff",
+    location: "Tokyo, Japan",
+    startDate: "August 2025",
+    endDate: "November 2025",
+}
 export const educationEntries : EducationEntry[] = [bachelorDegree, masterDegree, exchangeSemester, mastersThesis].reverse();
+
+export const experienceEntries : EducationEntry[] = [waiter, gifuExchange];
 
 

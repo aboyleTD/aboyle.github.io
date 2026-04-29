@@ -5,6 +5,8 @@
   --authors: oklch(55.2% 0.016 285.938);
   --pubdate: oklch(71.1% 0.019 323.02);
   --bg: #fff;
+  --cell-border: #a8abb1;
+  --cell-bg: #f1eded;
   --border: #e5e4e7;
   --code-bg: #f4f3ec;
   --accent: #aa3bff;
@@ -41,6 +43,8 @@
     --pubdate: oklch(43.5% 0.029 321.78); 
     --bg: #111425;
     --border: #2e303a;
+    --cell-border: #374151;
+    --cell-bg: #1E293B;
     --code-bg: #1f2028;
     --accent: #c084fc;
     --accent-bg: rgba(192, 132, 252, 0.15);
