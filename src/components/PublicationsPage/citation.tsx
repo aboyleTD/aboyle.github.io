@@ -4,22 +4,31 @@ import "./citation.css";
 
 
 interface CitationProps {
-    bibEntry : BibEntry;
+    bibEntry : BibEntry | undefined;
     linkMap: Map<string, string>;
 }
 
 
 function Citation(props: CitationProps) {
     const bibEntry = props.bibEntry;
+    if (!bibEntry) {
+        return <div>Invalid Bib Entry</div>;
+    }
     const linkMap = props.linkMap;
 
     const handleWrapperStringField = (field : any) : string[] => {
+        let data: string[] = [];
         switch (field.type) {
             case "quotedstringwrapper":
-                return field.data[0].data;
+                data = field.data[0].data;
+                break;
             case "bracedstringwrapper":
-                return field.data;
+                data = field.data;
+                break;
+            default:
+                data = field.data;
         }
+        return data;
     }
     const handleTitle = (field: any, URL?: string) : JSX.Element => {
         const data = handleWrapperStringField(field);
