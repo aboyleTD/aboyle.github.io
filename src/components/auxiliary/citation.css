@@ -2,6 +2,9 @@
 .title {
         color: var(--text-h);
 }
+.booktitle-abbr {
+        color: var(--text-h);
+}
 .author {
         color: var(--authors);
 }
