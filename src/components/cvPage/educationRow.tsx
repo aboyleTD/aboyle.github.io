@@ -23,7 +23,7 @@ function EducationRow(props : EducationRowProps) {
                 <p className="font-light text-sm leading-none">{startDate} - {endDate}</p>
                 <p className="font-light text-sm leading-none">{entry.location}</p>
             </div>
-            <div className="flex flex-col w-3/4">
+            <div className="flex flex-col w-3/4 ml-2">
                 <p className={descriptionStyle}>{entry.description}</p>
                 {entry.institution && <p className="font-light  leading-none text-sm institution ">{entry.institution}</p>}
                 {entry.supervisors && <p className="font-light text-sm leading-none">{supervisorPreamble} {entry.supervisors.join(", ")}</p>}

@@ -9,7 +9,7 @@ export interface EducationEntry {
 }
 
 const bachelorDegree : EducationEntry = {
-    description: "Bsc Computer Science",
+    description: "BSc Computer Science",
     institution: "ETH Zurich",
     location: "Zurich, Switzerland",
     startDate: "September 2020",
@@ -17,7 +17,7 @@ const bachelorDegree : EducationEntry = {
 }
 
 const masterDegree : EducationEntry = {
-    description: "Msc Computer Science Majoring in Machine Intelligence",
+    description: "MSc Computer Science Majoring in Machine Intelligence",
     institution: "ETH Zurich",
     location: "Zurich, Switzerland",
     startDate: "September 2023",
