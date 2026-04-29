@@ -47,7 +47,6 @@ function Citation(props: CitationProps) {
         } else if (bookTitle.includes("VIS")) {
             venue = "IEEE VIS";
         }
-        console.log("Book title:", bookTitle, "Venue:", venue, "Year:", year);
         venue += " " + year.slice(2,4);
         return (
             <p className=" inline">

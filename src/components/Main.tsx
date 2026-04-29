@@ -6,7 +6,7 @@ function Main() {
             <HeaderBar />
             <div>
             Hi, this site is currently under construction. Check back again later. 
-            <img src="/assets/pictures/self.png" alt="Self" />
+            <img src="/aboyle.github.io/assets/pictures/self.png" alt="Self" />
             </div>
         </div>
 )
