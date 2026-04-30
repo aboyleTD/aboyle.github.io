@@ -14,7 +14,7 @@ function TypeWriterWrapper({ text, onTyped, pauseDuration, isVisible }: { text: 
                 options={{
                     autoStart: true,
                     loop: false,
-                    delay: 35,
+                    delay: 30,
                     deleteSpeed: 20,
                 }}
                 onInit={(typewriter) => {
@@ -34,8 +34,9 @@ function TypeWriterWrapper({ text, onTyped, pauseDuration, isVisible }: { text: 
 }
 
 function ResponseButton({ text, onClick, isVisible, hasBeenClicked }: { text: string, onClick: () => void, isVisible: boolean, hasBeenClicked: boolean }) {
+    // TODO Improve colour scheme (esp. for dark mode)
     return (
-        <div className="flex mb-1 mt-2">
+        <div className="flex mb-2 mt-2">
             <button aria-hidden={!isVisible}
             className={`text-xs inline-block ml-auto border-1 px-1 pb-1 pt-[1px] rounded-sm transition-opacity transition-transform duration-300 ${
             isVisible ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-1 pointer-events-none"
@@ -50,11 +51,18 @@ function ResponseButton({ text, onClick, isVisible, hasBeenClicked }: { text: st
 
 
 function Main() {
-    const [conversationState, setConversationState] = useState<number>(0);
+    // TODO make local storage access cleaner
+
+    const [conversationState, setConversationState] = useState<number>(localStorage.getItem("conversationState") ? parseInt(localStorage.getItem("conversationState") as string) : 0);
+
+    const saveConversationState = (state: number) => {
+        localStorage.setItem("conversationState", state.toString());
+    }
+
     const monotonicSetConversationState = (newState: number) => {
-        console.log("setting conversation state", newState);
         if (newState > conversationState) {
             setConversationState(newState);
+            saveConversationState(newState);
         }
     }
 
@@ -83,7 +91,7 @@ function Main() {
                         {<ResponseButton text="What kind of projects have you worked on?" onClick={() => monotonicSetConversationState(4)} isVisible={conversationState >= 3} hasBeenClicked={conversationState >= 4} />}
                         {TypeWriterWrapper({ text: "I have developped novel AI models, explainability methods and user interfaces.", onTyped: () => monotonicSetConversationState(5), pauseDuration: 100, isVisible: conversationState >= 4 })}
                         {<ResponseButton text="Can you show me some of your work?" onClick={() => monotonicSetConversationState(6)} isVisible={conversationState >= 5} hasBeenClicked={conversationState >= 6} />}
-                        {TypeWriterWrapper({ text: "Check out the rest of the site to find out more ;)", onTyped: () => monotonicSetConversationState(7), pauseDuration: 100, isVisible: conversationState >= 6 })}
+                        {TypeWriterWrapper({ text: "Check out the rest of the site to find out more 😉", onTyped: () => monotonicSetConversationState(7), pauseDuration: 100, isVisible: conversationState >= 6 })}
                     </div>
                 
                 </div>
