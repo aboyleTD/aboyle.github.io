@@ -6,9 +6,9 @@ import "./cvPage.css";
 function cvPage() {
 
     return (
-        <div>
+        <div className="w-screen h-screen flex flex-col items-center justify-start">
             <HeaderBar />
-            <div className="w-3/4 justify-start items-start text-start flex flex-col mx-auto overflow-y-auto">
+            <div className="w-3/4 justify-start items-start text-start flex flex-col  overflow-y-auto no-scrollbar">
                 <div className="w-full flex flex-row">
                     <p className="font-thin w-1/4 text-3xl section-header">Education</p>
                     <div className="cell-container">

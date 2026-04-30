@@ -5,3 +5,22 @@
 .about {
     color: var(--about);
 }
+
+/* .response-box {
+    background: var(--cell-bg);
+    border: var(--cell-border);
+    color: var(--text);
+}
+
+.response-box:hover {
+    background: var(--cell-bg);
+    border: var(--cell-border);
+    color: var(--text);
+} */
+
+.response-box-clicked {
+    background: var(--cell-bg);
+    border: var(--cell-border);
+    color: var(--text);
+}
+
