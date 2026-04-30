@@ -1,3 +1,7 @@
 .name {
     color: var(--text-h);
 }
+
+.about {
+    color: var(--about);
+}

@@ -4,6 +4,7 @@
   --text-h: #08060d;
   --authors: oklch(55.2% 0.016 285.938);
   --pubdate: oklch(71.1% 0.019 323.02);
+  --about: #6b6375;
   --bg: #fff;
   --cell-border: #a8abb1;
   --cell-bg: #f1eded;
@@ -41,6 +42,7 @@
     --text-h: #f3f4f6;
     --authors: oklch(87.2% 0.007 219.6);
     --pubdate: oklch(43.5% 0.029 321.78); 
+    --about: #e1dbe8;
     --bg: #111425;
     --border: #2e303a;
     --cell-border: #374151;

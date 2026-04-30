@@ -50,7 +50,7 @@ function Citation(props: CitationProps) {
         venue += " " + year.slice(2,4);
         return (
             <p className=" inline">
-                <span className=" border-1 rounded-md px-1 py-[2px] mr-1 border-slate-300 w-fit text-nowrap leading-none font-light text-xs booktitle-abbr">{venue}</span>
+                <span className=" border-1 rounded-md px-1 py-[2px] mr-2 border-slate-300 w-fit text-nowrap leading-none font-light text-xs booktitle-abbr">{venue}</span>
                 <span className="italic leading-none font-thin">{bookTitle}</span>
             </p>
         )

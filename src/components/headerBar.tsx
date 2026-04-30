@@ -21,7 +21,7 @@ function HeaderBar(props: HeaderBarProps) {
   }
 
   return (
-    <div className='flex flex-row items-center justify-between py-4 px-10 '>
+    <div className='flex flex-row items-center justify-between py-4 px-10 w-full'>
         <div className={returnToTopStyle}>
           <Button onClick={returnToTop} style='HeaderBar' noTextPaddings={true}>
           Alan Boyle
