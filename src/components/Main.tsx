@@ -104,9 +104,6 @@ function Main() {
         <div className="w-screen h-screen flex flex-col items-center justify-start">
             <HeaderBar removeReturnToTop={true}/>
             <div className="w-3/4 ">
-                {/* <p className="ml-6 text-normal font-light">
-                        Psst, this site is currently under construction (V 0.4). Check back again later.
-                </p> */}
                 <div className="flex flex-row items-start justify-start">
                     <div className="flex flex-col items-center justify-center w-1/4 max-w-[230px]">
                         <img className=" rounded-full" src={selfImg} alt="Self.jpg" />
@@ -126,7 +123,7 @@ function Main() {
                         {<ResponseButton text="What are your interests?" onClick={() => divergentStoryProgression(4, "interests")} isVisible={conversationState >= 3 && (storyLine === "undecided" || storyLine === "interests")} hasBeenClicked={conversationState >= 4} />}
                         {<ResponseButton text="What languages do you speak?" onClick={() => divergentStoryProgression(4, "languages")} isVisible={conversationState >= 3 && (storyLine === "undecided" || storyLine === "languages")} hasBeenClicked={conversationState >= 4} />}
                         {<ResponseButton text="What kind of projects have you worked on?" onClick={() => divergentStoryProgression(4, "projects")} isVisible={conversationState >= 3 && (storyLine === "undecided" || storyLine === "projects")} hasBeenClicked={conversationState >= 4} />}
-                        {TypeWriterWrapper({ text: storyLineResponse.get(storyLine), onTyped: () => monotonicSetConversationState(5), pauseDuration: 100, isVisible: conversationState >= 4, hasBeenTypedInit: conversationState >= 5 })}
+                        {TypeWriterWrapper({ text: storyLineResponse.get(storyLine) ?? "Default storyline text", onTyped: () => monotonicSetConversationState(5), pauseDuration: 100, isVisible: conversationState >= 4, hasBeenTypedInit: conversationState >= 5 })}
                         {<ResponseButton text="Can you show me some of your work?" onClick={() => monotonicSetConversationState(6)} isVisible={conversationState >= 5} hasBeenClicked={conversationState >= 6} />}
                         {TypeWriterWrapper({ text: "Check out the rest of the site to find out more 😉", onTyped: () => monotonicSetConversationState(7), pauseDuration: 100, isVisible: conversationState >= 6, hasBeenTypedInit: conversationState >= 7 })}
                         {<ResponseButton text="Reset" onClick={() => resetConversationState()} isVisible={conversationState >= 7} hasBeenClicked={conversationState >= 8} />}
