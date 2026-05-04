@@ -2,6 +2,10 @@ import { useState } from "react";
 import HeaderBar from "./headerBar";
 import selfImg from "../assets/pictures/self.jpg";
 import TypewriterComponent from "typewriter-effect";
+import { profileLinks } from "../text/links";
+import { FaGithub } from "react-icons/fa6";
+import { SiGooglescholar } from "react-icons/si";
+import { HiOutlineMail } from "react-icons/hi";
 import "./main.css";
 
 
@@ -60,9 +64,9 @@ function Main() {
 
     const storyLineResponse = new Map<string, string>([
         ["undecided", "I have developped novel AI models, explainability methods and user interfaces."],
-        ["interests", "My main interests are XAI, NLP and Human-AI interaction."],
-        ["languages", "I speak German, English and Japanese."],
-        ["projects", "I have helped develop novel AI models, explainability methods and user interfaces."],
+        ["interests", "My main interests are  NLP, XAI, and Human-AI interaction."],
+        ["languages", "I speak German, English, and Japanese."],
+        ["projects", "I have helped develop novel AI models, explainability methods, and user interfaces."],
     ]);
 
     const saveStoryLine = (line: string) => {
@@ -115,16 +119,22 @@ function Main() {
                             ETH Zurich
                         </div>
                         {/* TODO add links */}
+                        <div className="flex flex-row mt-2 gap-2 text-3xl">
+                            <a className="" href={`mailto:${profileLinks.email}`} target="_blank"><HiOutlineMail /></a>
+                            <a className="" href={profileLinks.github} target="_blank"><FaGithub /></a>
+                            {/* <a className="font-light text-sm" href={profileLinks.portfolio} target="_blank">{profileLinks.portfolio}</a> */}
+                            <a className="" href={profileLinks.googleScholar} target="_blank"><SiGooglescholar /></a>
+                        </div>
                     </div>
                     <div className="text-lg font-light text-justify leading-[1.1] about ml-6 w-3/4">
                         {TypeWriterWrapper({ text: "Hi, my name is Alan.", onTyped: () => monotonicSetConversationState(1), pauseDuration: 100, isVisible: true, hasBeenTypedInit: conversationState >= 1 })}
                         {<ResponseButton text="Hi, what do you do?" onClick={() => monotonicSetConversationState(2)} isVisible={conversationState >= 1} hasBeenClicked={conversationState >= 2} />}
-                        {TypeWriterWrapper({ text: "I help people get insight into AI decision-making.", onTyped: () => monotonicSetConversationState(3), pauseDuration: 100, isVisible: conversationState >= 2, hasBeenTypedInit: conversationState >= 3 })}
+                        {TypeWriterWrapper({ text: "I help people develop and get insight into AI systems.", onTyped: () => monotonicSetConversationState(3), pauseDuration: 100, isVisible: conversationState >= 2, hasBeenTypedInit: conversationState >= 3 })}
                         {<ResponseButton text="What are your interests?" onClick={() => divergentStoryProgression(4, "interests")} isVisible={conversationState >= 3 && (storyLine === "undecided" || storyLine === "interests")} hasBeenClicked={conversationState >= 4} />}
                         {<ResponseButton text="What languages do you speak?" onClick={() => divergentStoryProgression(4, "languages")} isVisible={conversationState >= 3 && (storyLine === "undecided" || storyLine === "languages")} hasBeenClicked={conversationState >= 4} />}
                         {<ResponseButton text="What kind of projects have you worked on?" onClick={() => divergentStoryProgression(4, "projects")} isVisible={conversationState >= 3 && (storyLine === "undecided" || storyLine === "projects")} hasBeenClicked={conversationState >= 4} />}
                         {TypeWriterWrapper({ text: storyLineResponse.get(storyLine) ?? "Default storyline text", onTyped: () => monotonicSetConversationState(5), pauseDuration: 100, isVisible: conversationState >= 4, hasBeenTypedInit: conversationState >= 5 })}
-                        {<ResponseButton text="Can you show me some of your work?" onClick={() => monotonicSetConversationState(6)} isVisible={conversationState >= 5} hasBeenClicked={conversationState >= 6} />}
+                        {<ResponseButton text="Can you tell me more about yourself?" onClick={() => monotonicSetConversationState(6)} isVisible={conversationState >= 5} hasBeenClicked={conversationState >= 6} />}
                         {TypeWriterWrapper({ text: "Check out the rest of the site to find out more 😉", onTyped: () => monotonicSetConversationState(7), pauseDuration: 100, isVisible: conversationState >= 6, hasBeenTypedInit: conversationState >= 7 })}
                         {<ResponseButton text="Reset" onClick={() => resetConversationState()} isVisible={conversationState >= 7} hasBeenClicked={conversationState >= 8} />}
 

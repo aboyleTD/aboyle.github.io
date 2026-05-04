@@ -2,7 +2,7 @@
         color: var(--pubdate);
 }
 
-.description {
+.institution {
         color: var(--text-h);
 }
 
@@ -14,7 +14,7 @@
     margin-bottom: 1rem;
     border-width: 2px;
     border-color: var(--cell-border); /* slate-700 */
-    background-color: var(--cell-bg); /* slate-800 */
+    background-color: var(--cell-bg-big); /* slate-800 */
     border-radius: 0.375rem;
     padding-left: 1rem;
     padding-right: 1rem;
@@ -23,6 +23,6 @@
     width: 100%;
     height: fit-content;
 }
-.institution {
-        color: var(--authors);
+.description {
+        color: var(--description);
 }

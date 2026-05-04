@@ -43,14 +43,16 @@ const mastersThesis : EducationEntry = {
 }
 
 const gifuExchange : EducationEntry = {
-    description: "Completed a semester at 岐阜工業高校 (Gifu Technical High School) as part of an exchange",
+    description: "Exchange Semester",
+    institution: "岐阜工業高等学校 (Gifu Technical High School)",
     location: "Gifu, Japan",
     startDate: "April 2018",
     endDate: "August 2018",
 }
 
 const waiter : EducationEntry = {
-    description: "Worked at a restaurant in Tokyo as a waiter and kitchen staff",
+    description: "Kitchen staff and waiter",
+    institution: "Kanarimo",
     location: "Tokyo, Japan",
     startDate: "August 2025",
     endDate: "November 2025",

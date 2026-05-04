@@ -1,4 +1,4 @@
-import type { EducationEntry } from "./cvText";
+import type { EducationEntry } from "../../text/cvText";
 import "./cvPage.css";
 interface EducationRowProps {
     entry: EducationEntry;
@@ -15,7 +15,7 @@ function EducationRow(props : EducationRowProps) {
     const endDate = AbbreviateDate(entry.endDate);
     // const supervisorPreamble = entry.supervisors && entry.supervisors.length > 1 ? "Supervisors:" : "Supervisor:";
     const supervisorPreamble = "Supervision: ";
-    const descriptionStyle = entry.institution ? "font-normal leading-none text-lg description mb-1" : "font-light leading-none text-normal institution mt-2";
+    const institutionStyle = entry.institution ? "font-normal leading-none text-lg institution mb-1" : "font-light leading-none text-normal institution mt-2";
 
     return (
         <div className="flex flex-row mb-2">
@@ -24,8 +24,8 @@ function EducationRow(props : EducationRowProps) {
                 <p className="font-light text-sm leading-none">{entry.location}</p>
             </div>
             <div className="flex flex-col w-3/4 ml-2">
-                <p className={descriptionStyle}>{entry.description}</p>
-                {entry.institution && <p className="font-light  leading-none text-sm institution ">{entry.institution}</p>}
+                <p className={institutionStyle}>{entry.institution}</p>
+                {entry.description && <p className="font-light  leading-none text-sm description">{entry.description}</p>}
                 {entry.supervisors && <p className="font-light text-sm leading-none">{supervisorPreamble} {entry.supervisors.join(", ")}</p>}
             </div>
         </div>

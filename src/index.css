@@ -2,12 +2,14 @@
 :root {
   --text: #6b6375;
   --text-h: #08060d;
-  --authors: oklch(55.2% 0.016 285.938);
+  --authors: oklch(44.6% 0.03 256.802);
+  --description: oklch(30.3% 0.034 259.733);
   --pubdate: oklch(71.1% 0.019 323.02);
   --about: #6b6375;
   --bg: #fff;
   --cell-border: #a8abb1;
   --cell-bg: #f1eded;
+  --cell-bg-big: oklch(96.8% 0.007 247.896);
   --border: #e5e4e7;
   --code-bg: #f4f3ec;
   --accent: #aa3bff;
@@ -41,12 +43,14 @@
     --text: #9ca3af;
     --text-h: #f3f4f6;
     --authors: oklch(87.2% 0.007 219.6);
+    --description: oklch(87.2% 0.007 219.6);
     --pubdate: oklch(43.5% 0.029 321.78); 
     --about: #e1dbe8;
     --bg: #111425;
     --border: #2e303a;
     --cell-border: #374151;
     --cell-bg: #1E293B;
+    --cell-bg-big: #1E293B;
     --code-bg: #1f2028;
     --accent: #c084fc;
     --accent-bg: rgba(192, 132, 252, 0.15);
