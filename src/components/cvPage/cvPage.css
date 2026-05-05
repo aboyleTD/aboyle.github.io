@@ -3,9 +3,20 @@
 }
 
 .institution {
-        color: var(--text-h);
+        color: var(--institution);
 }
 
+.skills-block {
+        background-color: var(--bg);
+        /* border-color: -webkit-linear-gradient(90.13deg,#00cea8 1.9%,#bf61ff 97.5%); */
+        font-family: Poppins,sans-serif;
+        border: 2px solid transparent;
+        background: linear-gradient(var(--bg), var(--bg)) padding-box, 
+                linear-gradient(to top, #00cea8,#bf61ff) border-box;
+        padding: 1rem;
+        border-radius: 20px;
+
+}
 
 .cell-container {
     display: flex;
@@ -15,7 +26,7 @@
     border-width: 2px;
     border-color: var(--cell-border); /* slate-700 */
     background-color: var(--cell-bg-big); /* slate-800 */
-    border-radius: 0.375rem;
+    border-radius: 15px;
     padding-left: 1rem;
     padding-right: 1rem;
     padding-top: 0.5rem;
@@ -25,4 +36,8 @@
 }
 .description {
         color: var(--description);
+}
+
+.date {
+        color: var(--cvdate);
 }

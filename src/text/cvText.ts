@@ -1,3 +1,18 @@
+import pythonLogo from "../assets/logos/python.png";
+import pytorchLogo from "../assets/logos/pytorch.png";
+import tensorflowLogo from "../assets/logos/tensorflow.png";
+import reactLogo from "../assets/logos/react.png";
+import tsLogo from "../assets/logos/typescript.png";
+import postgresLogo from "../assets/logos/postgressql.png";
+import kubernetesLogo from "../assets/logos/kubernetes.png";
+import javaLogo from "../assets/logos/java.png";
+import cppLogo from "../assets/logos/cpp.png";
+import cLogo from "../assets/logos/c.png";
+import x86Logo from "../assets/logos/x86.png";
+import haskellLogo from "../assets/logos/haskell.png";
+import ocamlLogo from "../assets/logos/ocaml.png";
+// import tailwindLogo from "../assets/logos/tailwind.png";
+
 export interface EducationEntry {
     description: string;
     institution?: string;
@@ -6,6 +21,11 @@ export interface EducationEntry {
     endDate: string;
     logoPath?: string;
     supervisors?: string[];
+}
+
+export interface SkillsEntry {
+    category: string;
+    skills: Map<string, string>; // Skill name to logo path
 }
 
 const bachelorDegree : EducationEntry = {
@@ -61,4 +81,42 @@ export const educationEntries : EducationEntry[] = [bachelorDegree, masterDegree
 
 export const experienceEntries : EducationEntry[] = [waiter, gifuExchange];
 
+const dataScienceSkills : SkillsEntry = {
+    category: "Data Science",
+    skills: new Map<string, string>([
+        ["Python", pythonLogo],
+        ["PyTorch", pytorchLogo],
+        ["TensorFlow", tensorflowLogo],
+    ]),
+};
 
+const webDevSkills : SkillsEntry = {
+    category: "Web Development",
+    skills: new Map<string, string>([
+        ["React", reactLogo ],
+        ["TypeScript", tsLogo],
+        // ["Tailwind CSS", tailwindLogo],
+        ["SQL", postgresLogo],
+        ["K8s", kubernetesLogo],
+    ]),
+};
+
+const programmingLanguagesSkills : SkillsEntry = {
+    category: "Systems and OOP",
+    skills: new Map<string, string>([
+        ["Java", javaLogo],
+        ["C++", cppLogo],
+        ["C", cLogo],
+        ["x86", x86Logo],
+    ]),
+};
+
+const functionalProgrammingSkills : SkillsEntry = {
+    category: "Functional ",
+    skills: new Map<string, string>([
+        ["Haskell", haskellLogo],
+        ["OCaml", ocamlLogo],
+    ]),
+};
+
+export const programmingSkills : SkillsEntry[] = [dataScienceSkills, webDevSkills, programmingLanguagesSkills, functionalProgrammingSkills];

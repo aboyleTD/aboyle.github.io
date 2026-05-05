@@ -19,8 +19,8 @@ function EducationRow(props : EducationRowProps) {
 
     return (
         <div className="flex flex-row mb-2">
-            <div className="flex flex-col w-1/4 mt-2">
-                <p className="font-light text-sm leading-none">{startDate} - {endDate}</p>
+            <div className="flex flex-col w-1/4 mt-2 date">
+                <p className="font-light text-sm leading-none ">{startDate} - {endDate}</p>
                 <p className="font-light text-sm leading-none">{entry.location}</p>
             </div>
             <div className="flex flex-col w-3/4 ml-2">

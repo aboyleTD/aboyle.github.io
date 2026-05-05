@@ -3,8 +3,10 @@
   --text: #6b6375;
   --text-h: #08060d;
   --authors: oklch(44.6% 0.03 256.802);
+  --institution: #5b526e;
   --description: oklch(30.3% 0.034 259.733);
   --pubdate: oklch(71.1% 0.019 323.02);
+  --cvdate: #5a5264;
   --about: #6b6375;
   --bg: #fff;
   --cell-border: #a8abb1;
@@ -42,9 +44,11 @@
   :root {
     --text: #9ca3af;
     --text-h: #f3f4f6;
+    --institution: #f3f4f6;
     --authors: oklch(87.2% 0.007 219.6);
     --description: oklch(87.2% 0.007 219.6);
     --pubdate: oklch(43.5% 0.029 321.78); 
+    --cvdate: oklch(71.1% 0.019 323.02);
     --about: #e1dbe8;
     --bg: #111425;
     --border: #2e303a;
