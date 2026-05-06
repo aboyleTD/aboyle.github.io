@@ -134,7 +134,7 @@ function Main() {
                         {<ResponseButton text="What languages do you speak?" onClick={() => divergentStoryProgression(4, "languages")} isVisible={conversationState >= 3 && (storyLine === "undecided" || storyLine === "languages")} hasBeenClicked={conversationState >= 4} />}
                         {<ResponseButton text="What kind of projects have you worked on?" onClick={() => divergentStoryProgression(4, "projects")} isVisible={conversationState >= 3 && (storyLine === "undecided" || storyLine === "projects")} hasBeenClicked={conversationState >= 4} />}
                         {TypeWriterWrapper({ text: storyLineResponse.get(storyLine) ?? "Default storyline text", onTyped: () => monotonicSetConversationState(5), pauseDuration: 100, isVisible: conversationState >= 4, hasBeenTypedInit: conversationState >= 5 })}
-                        {<ResponseButton text="Can you tell me more about yourself?" onClick={() => monotonicSetConversationState(6)} isVisible={conversationState >= 5} hasBeenClicked={conversationState >= 6} />}
+                        {<ResponseButton text="What else can you tell me about yourself?" onClick={() => monotonicSetConversationState(6)} isVisible={conversationState >= 5} hasBeenClicked={conversationState >= 6} />}
                         {TypeWriterWrapper({ text: "Check out the rest of the site to find out more 😉", onTyped: () => monotonicSetConversationState(7), pauseDuration: 100, isVisible: conversationState >= 6, hasBeenTypedInit: conversationState >= 7 })}
                         {<ResponseButton text="Reset" onClick={() => resetConversationState()} isVisible={conversationState >= 7} hasBeenClicked={conversationState >= 8} />}
 

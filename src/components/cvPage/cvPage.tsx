@@ -1,5 +1,5 @@
 import HeaderBar from "../headerBar";
-import { educationEntries, experienceEntries, programmingSkills } from "../../text/cvText";
+import { educationEntries, experienceEntries, programmingSkills, languageSkills } from "../../text/cvText";
 import EducationRow from "./educationRow";
 import SkillsBlock from "./skillsBlock";
 import "./cvPage.css";
@@ -25,14 +25,30 @@ function cvPage() {
                     <div className="w-full flex flex-row">
                         <p className="font-thin w-1/4 text-3xl section-header">Skills</p>
                         <div className="cell-container">
-                            <p className="font-thin text-xl description mb-1">Technical Skills</p>
+                            <p className="font-thin text-xl description mb-1">Technical</p>
                             <div className="grid grid-cols-4 gap-3">
                                 {programmingSkills.map((skillsEntry, index) => (
                                     <SkillsBlock key={index} skillsEntry={skillsEntry} />
                                 ))}
                             </div>
-                            <p className="font-thin text-xl description">Language Skills</p>
-                            <p className="font-light text-sm description">German (Native), English (Native), Japanese (JLPT N1), French (Intermediate), Latin (Proficient) </p>
+                            <p className="font-thin text-xl description mb-1 mt-2">Language</p>
+                            {/* <p className="font-light text-sm description">German (Native), English (Native), Japanese (JLPT N1), French (Intermediate), Latin (Proficient) </p> */}
+                            <div className="flex flex-row flex-wrap gap-3">
+                                {languageSkills.map((languageEntry, index) => (
+                                    <div key={index} className="language-block text-center items-center border-2 rounded-lg p-2  flex flex-row justify-center gap-2 h-fit">
+                                        <p className="font-light text-base description w-fit leading-[1.1] text-start">{languageEntry.language} <br/>
+                                        <span className="font-light text-slate-500 text-sm">{languageEntry.proficiency}</span>
+                                        </p>
+                                        <div className="flex flex-row flex-wrap justify-center">
+                                            {languageEntry.icons.map((icon, iconIndex) => icon.includes("/") ?
+                                            (<img key={iconIndex} src={icon} className="h-5"/>)
+                                             : (
+                                                <span key={iconIndex} className="leading-none text-xl">{icon}</span>
+                                            ) )}
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                     </div>
                     <div className="w-full flex flex-row">

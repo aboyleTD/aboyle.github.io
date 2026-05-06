@@ -11,6 +11,7 @@ import cLogo from "../assets/logos/c.png";
 import x86Logo from "../assets/logos/x86.png";
 import haskellLogo from "../assets/logos/haskell.png";
 import ocamlLogo from "../assets/logos/ocaml.png";
+import romeIcon from "../assets/logos/rome.png";
 // import tailwindLogo from "../assets/logos/tailwind.png";
 
 export interface EducationEntry {
@@ -26,6 +27,12 @@ export interface EducationEntry {
 export interface SkillsEntry {
     category: string;
     skills: Map<string, string>; // Skill name to logo path
+}
+
+export interface LanguageEntry {
+    language: string;
+    proficiency: string;
+    icons: string[]; // Paths to icons representing the language or unicode characters for the flag
 }
 
 const bachelorDegree : EducationEntry = {
@@ -120,3 +127,35 @@ const functionalProgrammingSkills : SkillsEntry = {
 };
 
 export const programmingSkills : SkillsEntry[] = [dataScienceSkills, webDevSkills, programmingLanguagesSkills, functionalProgrammingSkills];
+
+const germanLanguage : LanguageEntry = {
+    language: "German",
+    proficiency: "Native",
+    icons: ["🇩🇪", "🇨🇭"],
+};
+
+const englishLanguage : LanguageEntry = {
+    language: "English",
+    proficiency: "Native",
+    icons: ["🇮🇪"],
+};
+
+const japaneseLanguage : LanguageEntry = {
+    language: "Japanese",
+    proficiency: "JLPT N1",
+    icons: ["🇯🇵"],
+};
+
+const frenchLanguage : LanguageEntry = {
+    language: "French",
+    proficiency: "Intermediate",
+    icons: ["🇫🇷"],
+};
+
+const latinLanguage : LanguageEntry = {
+    language: "Latin",
+    proficiency: "Proficient",
+    icons: [romeIcon],
+};
+
+export const languageSkills : LanguageEntry[] = [germanLanguage, englishLanguage, japaneseLanguage, frenchLanguage, latinLanguage];

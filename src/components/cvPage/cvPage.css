@@ -13,8 +13,18 @@
         border: 2px solid transparent;
         background: linear-gradient(var(--bg), var(--bg)) padding-box, 
                 linear-gradient(to top, #00cea8,#bf61ff) border-box;
-        padding: 1rem;
         border-radius: 20px;
+
+}
+
+.language-block {
+        background-color: var(--bg);
+        /* border-color: -webkit-linear-gradient(90.13deg,#00cea8 1.9%,#bf61ff 97.5%); */
+        font-family: Poppins,sans-serif;
+        border: 2px solid transparent;
+        background: linear-gradient(var(--bg), var(--bg)) padding-box, 
+                linear-gradient(to top, #00cea8,#bf61ff) border-box;
+        border-radius: 15px;
 
 }
 
