@@ -5,6 +5,7 @@
   --authors: oklch(44.6% 0.03 256.802);
   --institution: #5b526e;
   --description: oklch(30.3% 0.034 259.733);
+  --description-isolated: oklch(30.3% 0.034 259.733);
   --pubdate: oklch(71.1% 0.019 323.02);
   --cvdate: #5a5264;
   --about: #6b6375;
@@ -12,8 +13,9 @@
   --cell-border: #a8abb1;
   --cell-border-darker: #818389;
   --cell-bg: #f1eded;
-  --skill-cell-bg: #f4f2fa;
-  --skill-cell-bg-2: #f4f2fa;
+  --skill-cell-bg: #f7f6fc;
+  --skill-cell-bg-2: #e5e3eb;
+  --skill-cell-text: oklch(37.2% 0.044 257.287);
   --cell-bg-big: oklch(96.8% 0.007 247.896);
   --border: #e5e4e7;
   --code-bg: #f4f3ec;
@@ -49,17 +51,21 @@
     --text-h: #f3f4f6;
     --institution: #bfc4cd;
     --authors: oklch(87.2% 0.007 219.6);
-    --description: oklch(87.2% 0.007 219.6);
+    --description: #c6c7cc;
+    --description-isolated:  #aab0bb;
     --pubdate: oklch(43.5% 0.029 321.78); 
     --cvdate: oklch(71.1% 0.019 323.02);
     --about: #e1dbe8;
     --bg: #111425;
     --border: #2e303a;
     --cell-border: #111425;
-    --cell-border-darker: #374151;
+    --cell-border-darker: #2e3744;
     --cell-bg: #1E293B;
-    --skill-cell-bg: #122542;
-    --skill-cell-bg-2: #1E293B;
+    /* --skill-cell-bg: #122542;
+    --skill-cell-bg-2: #1E293B; */
+    --skill-cell-bg: #122542; 
+    --skill-cell-bg-2: #1f303f;
+    --skill-cell-text: oklch(70.4% 0.04 256.788);
     --cell-bg-big: #1E293B;
     --code-bg: #1f2028;
     --accent: #c084fc;

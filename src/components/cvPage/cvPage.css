@@ -5,12 +5,13 @@
 .institution {
         color: var(--institution);
 }
-.skills-category{
+/* .skills-category{
         font-family: bell-mt,serif;
-}
+} */
 .skills-block {
         /* border-color: -webkit-linear-gradient(90.13deg,#00cea8 1.9%,#bf61ff 97.5%); */
         font-family: Poppins,sans-serif;
+        color: var(--skill-cell-text);
         border: 2px solid transparent;
         background: linear-gradient(var(--skill-cell-bg), var(--skill-cell-bg-2)) padding-box, 
                 linear-gradient(to top, #00cea8,#bf61ff) border-box;
