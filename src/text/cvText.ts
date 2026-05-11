@@ -19,7 +19,7 @@ export interface LocalizedString {
 }
 export interface EducationEntry {
     description: LocalizedString;
-    institution?: LocalizedString;
+    institution: LocalizedString;
     location: string;
     startDate: string;
     endDate: string;
