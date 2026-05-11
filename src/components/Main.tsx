@@ -6,6 +6,8 @@ import { profileLinks } from "../text/links";
 import { FaGithub } from "react-icons/fa6";
 import { SiGooglescholar } from "react-icons/si";
 import { HiOutlineMail } from "react-icons/hi";
+import { getScript } from "../text/about";
+import type { Script } from "../text/about";
 import "./main.css";
 
 
@@ -62,11 +64,13 @@ function Main() {
     const [conversationState, setConversationState] = useState<number>(localStorage.getItem("conversationState") ? parseInt(localStorage.getItem("conversationState") as string) : 0);
     const [storyLine, setStoryLine] = useState<string>(localStorage.getItem("storyLine") ? localStorage.getItem("storyLine") as string : "undecided");
 
+    const script: Script = getScript();
+
     const storyLineResponse = new Map<string, string>([
-        ["undecided", "I have developped novel AI models, explainability methods and user interfaces."],
-        ["interests", "My main interests are  NLP, XAI, and Human-AI interaction."],
-        ["languages", "I speak German, English, and Japanese."],
-        ["projects", "I have helped develop novel AI models, explainability methods, and user interfaces."],
+        ["undecided", script.aboutMeFollowUps[2]],
+        ["interests", script.aboutMeFollowUps[0]],
+        ["languages", script.aboutMeFollowUps[1]],
+        ["projects", script.aboutMeFollowUps[2]],
     ]);
 
     const saveStoryLine = (line: string) => {
@@ -127,16 +131,16 @@ function Main() {
                         </div>
                     </div>
                     <div className="text-lg font-light text-justify leading-[1.1] about ml-6 w-3/4">
-                        {TypeWriterWrapper({ text: "Hi, my name is Alan.", onTyped: () => monotonicSetConversationState(1), pauseDuration: 100, isVisible: true, hasBeenTypedInit: conversationState >= 1 })}
-                        {<ResponseButton text="Hi, what do you do?" onClick={() => monotonicSetConversationState(2)} isVisible={conversationState >= 1} hasBeenClicked={conversationState >= 2} />}
-                        {TypeWriterWrapper({ text: "I help people develop and get insight into AI systems.", onTyped: () => monotonicSetConversationState(3), pauseDuration: 100, isVisible: conversationState >= 2, hasBeenTypedInit: conversationState >= 3 })}
-                        {<ResponseButton text="What are your interests?" onClick={() => divergentStoryProgression(4, "interests")} isVisible={conversationState >= 3 && (storyLine === "undecided" || storyLine === "interests")} hasBeenClicked={conversationState >= 4} />}
-                        {<ResponseButton text="What languages do you speak?" onClick={() => divergentStoryProgression(4, "languages")} isVisible={conversationState >= 3 && (storyLine === "undecided" || storyLine === "languages")} hasBeenClicked={conversationState >= 4} />}
-                        {<ResponseButton text="What kind of projects have you worked on?" onClick={() => divergentStoryProgression(4, "projects")} isVisible={conversationState >= 3 && (storyLine === "undecided" || storyLine === "projects")} hasBeenClicked={conversationState >= 4} />}
+                        {TypeWriterWrapper({ text: script.greetings, onTyped: () => monotonicSetConversationState(1), pauseDuration: 100, isVisible: true, hasBeenTypedInit: conversationState >= 1 })}
+                        {<ResponseButton text={script.greetingsQ} onClick={() => monotonicSetConversationState(2)} isVisible={conversationState >= 1} hasBeenClicked={conversationState >= 2} />}
+                        {TypeWriterWrapper({ text: script.aboutMe, onTyped: () => monotonicSetConversationState(3), pauseDuration: 100, isVisible: conversationState >= 2, hasBeenTypedInit: conversationState >= 3 })}
+                        {<ResponseButton text={script.aboutMeQs[0]} onClick={() => divergentStoryProgression(4, "interests")} isVisible={conversationState >= 3 && (storyLine === "undecided" || storyLine === "interests")} hasBeenClicked={conversationState >= 4} />}
+                        {<ResponseButton text={script.aboutMeQs[1]} onClick={() => divergentStoryProgression(4, "languages")} isVisible={conversationState >= 3 && (storyLine === "undecided" || storyLine === "languages")} hasBeenClicked={conversationState >= 4} />}
+                        {<ResponseButton text={script.aboutMeQs[2]} onClick={() => divergentStoryProgression(4, "projects")} isVisible={conversationState >= 3 && (storyLine === "undecided" || storyLine === "projects")} hasBeenClicked={conversationState >= 4} />}
                         {TypeWriterWrapper({ text: storyLineResponse.get(storyLine) ?? "Default storyline text", onTyped: () => monotonicSetConversationState(5), pauseDuration: 100, isVisible: conversationState >= 4, hasBeenTypedInit: conversationState >= 5 })}
-                        {<ResponseButton text="What else can you tell me about yourself?" onClick={() => monotonicSetConversationState(6)} isVisible={conversationState >= 5} hasBeenClicked={conversationState >= 6} />}
-                        {TypeWriterWrapper({ text: "Check out the rest of the site to find out more 😉", onTyped: () => monotonicSetConversationState(7), pauseDuration: 100, isVisible: conversationState >= 6, hasBeenTypedInit: conversationState >= 7 })}
-                        {<ResponseButton text="Reset" onClick={() => resetConversationState()} isVisible={conversationState >= 7} hasBeenClicked={conversationState >= 8} />}
+                        {<ResponseButton text={script.closerQ} onClick={() => monotonicSetConversationState(6)} isVisible={conversationState >= 5} hasBeenClicked={conversationState >= 6} />}
+                        {TypeWriterWrapper({ text: script.closer, onTyped: () => monotonicSetConversationState(7), pauseDuration: 100, isVisible: conversationState >= 6, hasBeenTypedInit: conversationState >= 7 })}
+                        {<ResponseButton text={script.reset} onClick={() => resetConversationState()} isVisible={conversationState >= 7} hasBeenClicked={conversationState >= 8} />}
 
                     </div>
                 </div>
