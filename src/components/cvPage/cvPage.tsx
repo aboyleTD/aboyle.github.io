@@ -16,7 +16,7 @@ function cvPage() {
                 <div className="w-3/4 justify-start items-start text-start flex flex-col">
                     <div className="w-full flex flex-row">
                         <p className="font-thin w-1/4 text-3xl section-header">Education</p>
-                        <div className="cell-container">
+                        <div className="cell-container font-serif">
                             {educationEntries.map((entry, index) => (
                                 <EducationRow key={index} entry={entry} />
                             ))}
@@ -25,15 +25,20 @@ function cvPage() {
                     <div className="w-full flex flex-row">
                         <p className="font-thin w-1/4 text-3xl section-header">Skills</p>
                         <div className="cell-container">
-                            <p className="font-thin text-xl description mb-1">Technical</p>
-                            <div className="grid grid-cols-4 gap-3">
+                            <p className="font-thin text-xl description mb-1">Technical Skills</p>
+                            <div className="grid grid-cols-4 gap-3 gap-y-1">
+                                {programmingSkills.map((skillsEntry, index) => (
+                                    <div key={index} className="h-full flex items-center justify-center text-center gap-1 ">
+                                        <span className="font-light text-lg text-center institution leading-[1.0] skills-category">{skillsEntry.category}</span>
+                                    </div>
+                                ))}
                                 {programmingSkills.map((skillsEntry, index) => (
                                     <SkillsBlock key={index} skillsEntry={skillsEntry} />
                                 ))}
                             </div>
-                            <p className="font-thin text-xl description mb-1 mt-2">Language</p>
+                            <p className="font-thin text-xl description mb-1 mt-2">Language Skills</p>
                             {/* <p className="font-light text-sm description">German (Native), English (Native), Japanese (JLPT N1), French (Intermediate), Latin (Proficient) </p> */}
-                            <div className="flex flex-row flex-wrap gap-3">
+                            <div className="flex flex-row flex-wrap gap-x-3 gap-y-2">
                                 {languageSkills.map((languageEntry, index) => (
                                     <div key={index} className="language-block text-center items-center border-2 rounded-lg p-2  flex flex-row justify-center gap-2 h-fit">
                                         <p className="font-light text-base description w-fit leading-[1.1] text-start">{languageEntry.language} <br/>
@@ -54,7 +59,7 @@ function cvPage() {
                     <div className="w-full flex flex-row">
                         <p className="font-thin w-1/4 text-3xl section-header">Experience</p>
                         {/* TODO make text of description nicer (mainly colour) */}
-                        <div className="cell-container">
+                        <div className="cell-container font-serif">
                             {experienceEntries.map((entry, index) => (
                                 <EducationRow key={index} entry={entry} />
                             ))}

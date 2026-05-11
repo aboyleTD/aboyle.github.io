@@ -9,7 +9,7 @@ function EducationRow(props : EducationRowProps) {
         const [month, year] = dateString.split(" ");
         const monthAbbr = month.slice(0,3);
         const yearAbbr = year; 
-        return `${monthAbbr} ${yearAbbr}`;
+        return `${monthAbbr}, ${yearAbbr}`;
     }
     const startDate = AbbreviateDate(entry.startDate);
     const endDate = AbbreviateDate(entry.endDate);
@@ -19,7 +19,7 @@ function EducationRow(props : EducationRowProps) {
 
     return (
         <div className="flex flex-row mb-2">
-            <div className="flex flex-col w-1/4 mt-2 date">
+            <div className="flex flex-col w-1/4 mt-2 date font-sans">
                 <p className="font-light text-sm leading-none ">{startDate} - {endDate}</p>
                 <p className="font-light text-sm leading-none">{entry.location}</p>
             </div>

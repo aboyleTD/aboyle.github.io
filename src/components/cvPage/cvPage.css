@@ -5,26 +5,29 @@
 .institution {
         color: var(--institution);
 }
-
+.skills-category{
+        font-family: bell-mt,serif;
+}
 .skills-block {
-        background-color: var(--bg);
         /* border-color: -webkit-linear-gradient(90.13deg,#00cea8 1.9%,#bf61ff 97.5%); */
         font-family: Poppins,sans-serif;
         border: 2px solid transparent;
-        background: linear-gradient(var(--bg), var(--bg)) padding-box, 
+        background: linear-gradient(var(--skill-cell-bg), var(--skill-cell-bg-2)) padding-box, 
                 linear-gradient(to top, #00cea8,#bf61ff) border-box;
         border-radius: 20px;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 
 }
 
 .language-block {
-        background-color: var(--bg);
         /* border-color: -webkit-linear-gradient(90.13deg,#00cea8 1.9%,#bf61ff 97.5%); */
         font-family: Poppins,sans-serif;
-        border: 2px solid transparent;
-        background: linear-gradient(var(--bg), var(--bg)) padding-box, 
-                linear-gradient(to top, #00cea8,#bf61ff) border-box;
+        border: 2px solid var(--cell-border-darker);
+        /* background: linear-gradient(var(--skill-cell-bg), var(--skill-cell-bg)) padding-box, 
+                linear-gradient(to bottom, var(--cell-border), var(--cell-border-darker)) border-box; */
+        background-color: var(--skill-cell-bg);
         border-radius: 15px;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 
 }
 
@@ -43,6 +46,7 @@
     padding-bottom: 0.5rem;
     width: 100%;
     height: fit-content;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }
 .description {
         color: var(--description);

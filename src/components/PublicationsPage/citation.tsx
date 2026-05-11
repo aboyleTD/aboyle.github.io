@@ -83,7 +83,7 @@ function Citation(props: CitationProps) {
                 {handleBookTitle(bibEntry.getField("booktitle"), date)}
                 <div className="mt-2 h-fit flex flex-row gap-2">
                 {Array.from(linkMap.entries()).map(([label, url]) => (
-                    <a key={label} href={url} target="_blank" className="border-1 px-2 text-sm rounded-lg hover:invert transition duration-200 ease-in-out">
+                    <a key={label} href={url} target="_blank" className="border-1 px-2 text-sm rounded-md hover:invert hover:scale-105 transition duration-200 ease-in-out">
                         {label}
                     </a>
                 ))}
