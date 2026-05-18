@@ -1,0 +1,6 @@
+.icon-button-bg {
+        background-color: var(--skill-cell-bg);
+        border: 2px solid var(--cell-border-darker);
+        color: var(--skill-cell-text);
+
+}

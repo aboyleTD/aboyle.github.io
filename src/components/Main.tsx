@@ -1,12 +1,12 @@
 import { useState } from "react";
 import HeaderBar from "./headerBar";
-import selfImg from "../assets/pictures/self.jpg";
 import TypewriterComponent from "typewriter-effect";
 import { profileLinks } from "../text/links";
 import { FaGithub } from "react-icons/fa6";
+import { FaLinkedin } from "react-icons/fa";
 import { SiGooglescholar } from "react-icons/si";
 import { HiOutlineMail } from "react-icons/hi";
-import { getScript } from "../text/about";
+import { getScript, getSelfImg } from "../text/about";
 import type { Script } from "../text/about";
 import "./main.css";
 
@@ -65,6 +65,7 @@ function Main() {
     const [storyLine, setStoryLine] = useState<string>(localStorage.getItem("storyLine") ? localStorage.getItem("storyLine") as string : "undecided");
 
     const script: Script = getScript();
+    const selfImg = getSelfImg();
 
     const storyLineResponse = new Map<string, string>([
         ["undecided", script.aboutMeFollowUps[2]],
@@ -114,7 +115,7 @@ function Main() {
             <div className="w-3/4 ">
                 <div className="flex flex-row items-start justify-start">
                     <div className="flex flex-col items-center justify-center w-1/4 max-w-[230px]">
-                        <img className=" rounded-full" src={selfImg} alt="Self.jpg" />
+                        <img className=" rounded-full border-1" src={selfImg} alt="Self.jpg" />
                         <div className="mt-2 text-2xl font-light text-center leading-none name">
                             Alan Boyle
                         </div>
@@ -128,6 +129,7 @@ function Main() {
                             <a className="" href={profileLinks.github} target="_blank"><FaGithub /></a>
                             {/* <a className="font-light text-sm" href={profileLinks.portfolio} target="_blank">{profileLinks.portfolio}</a> */}
                             <a className="" href={profileLinks.googleScholar} target="_blank"><SiGooglescholar /></a>
+                            <a className="" href={profileLinks.linkedin} target="_blank"><FaLinkedin /></a>
                         </div>
                     </div>
                     <div className="text-lg font-light text-justify leading-[1.1] about ml-6 w-3/4">

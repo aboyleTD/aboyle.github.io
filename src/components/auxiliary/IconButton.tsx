@@ -1,4 +1,5 @@
 import type { PropsWithChildren } from 'react';
+import "./auxiliary.css";
 
 interface Props {
     onClick: () => void;
@@ -19,6 +20,14 @@ const IconButton = (props: PropsWithChildren<Props>) => {
         case "SideBar":
             orderClasses =
                 'hover:scale-105 font-4xl';
+            break;
+        case "Inline":
+            orderClasses =
+                'hover:scale-105 disabled:bg-neutral-400 w-fit';
+            break;
+        case "Inline-bg":
+            orderClasses =
+                'hover:scale-105  px-7 py-[1px] disabled:bg-neutral-400 w-fit icon-button-bg';
             break;
         default:
             return null;

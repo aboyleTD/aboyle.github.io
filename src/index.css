@@ -106,3 +106,7 @@ body {
       scrollbar-width: none;  /* Firefox */
 }
 }
+
+.title {
+  color: var(--text-h);
+}

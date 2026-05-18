@@ -18,12 +18,6 @@ function HeaderBar(props: HeaderBarProps) {
   const returnToTop = () => {
     navigate('/')
   }
-  const goToPublications = () => {
-    navigate('/publications')
-  }
-  const goToCV = () => {
-    navigate('/cv')
-  }
 
   return (
     <div className='flex flex-row items-center justify-between py-4 pl-10 pr-3 w-full'>
@@ -33,12 +27,12 @@ function HeaderBar(props: HeaderBarProps) {
           </Button>
         </div>
         <div className='flex flex-row items-center justify-between gap-3'>
-            <div className='flex flex-row items-center gap-0'>
-              <Button onClick={returnToTop} style='HeaderBar' noTextPaddings={true}>{headerText.about}</Button>
-              <Button onClick={goToPublications} style='HeaderBar' noTextPaddings={true}>{headerText.publications}</Button>
-              <Button onClick={goToCV} style='HeaderBar' noTextPaddings={true}>{headerText.cv}</Button>
+            <div className='flex flex-row gap-2'>
+              <Button onClick={() => navigate('/about')} style='HeaderBar' noTextPaddings={true}>{headerText.about}</Button>
+              <Button onClick={() => navigate('/publications')} style='HeaderBar' noTextPaddings={true}>{headerText.publications}</Button>
+              <Button onClick={() => navigate('/cv')} style='HeaderBar' noTextPaddings={true}>{headerText.cv}</Button>
             </div>
-            <div className='flex flex-row items-center gap-0'>
+            <div className='flex flex-row items-center'>
                 <Button onClick={() => setLanguage('en')} style='HeaderBar-language' noTextPaddings={true}>EN</Button>
                 <span className='text-sm '>|</span>
                 <Button onClick={() => setLanguage('jp')} style='HeaderBar-language' noTextPaddings={true}>JP</Button> 

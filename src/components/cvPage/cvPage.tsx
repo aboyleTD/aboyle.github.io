@@ -1,15 +1,19 @@
+import { useState } from "react";
 import HeaderBar from "../headerBar";
 import { educationEntries, 
-    experienceEntries, 
+    GPAs,
+    workExperience, 
+    otherExperience,
     programmingSkills, 
     languageSkills, 
     sectionHeaders,
-    skillsSectionHeaders,
+    sectionSubHeaders,
     localizeString,
      type LocalizedString } from "../../text/cvText";
 import EducationRow from "./educationRow";
 import SkillsBlock from "./skillsBlock";
 import { FaRegFilePdf } from "react-icons/fa6";
+import {FaChevronUp, FaChevronDown, FaChevronRight } from "react-icons/fa";
 import IconButton from "../auxiliary/IconButton";
 import "./cvPage.css";
 import CV from "../../assets/pdfs/cv.pdf";
@@ -17,8 +21,18 @@ import { getLanguage } from "../../services/settings";
 
 function cvPage() {
     const language = getLanguage();
+    const [showGPA, setShowGPA] = useState<boolean>(false);
+    const [showEducationIndex, setShowEducationIndex] = useState<number>(4);
     const fixedLocatilization = (text: LocalizedString) => {
         return localizeString(text, language);
+    }
+
+    const toggleEducationIndex = () => {
+        if (showEducationIndex === educationEntries.length) {
+            setShowEducationIndex(4);
+        } else {
+            setShowEducationIndex(educationEntries.length);
+        }
     }
 
     return (
@@ -30,8 +44,41 @@ function cvPage() {
                         <p className="font-thin w-1/4 text-3xl section-header">{fixedLocatilization(sectionHeaders.education)}</p>
                         <div className="cell-container">
                             {educationEntries.map((entry, index) => (
-                                <EducationRow key={index} entry={entry} />
+                                <>
+                                {index < showEducationIndex && <EducationRow key={index} entry={entry} />}
+                                </>
                             ))}
+                            <div className="w-full items-center justify-center flex">
+                                <IconButton style={"Inline-bg"} onClick={toggleEducationIndex}>
+                                    {showEducationIndex == 4 ? <FaChevronDown className="text-sm font-thin"/> : <FaChevronUp className="text-sm"/>}
+                                </IconButton>
+                            </div>
+                            <div className="mt-4 w-full">
+                                <div className="flex flex-row items-center gap-1 leading-none mb-1">
+                                    <span className="institution font-thin text-xl ">Grade Point Averages</span>
+                                    <IconButton style="Inline" onClick={() => setShowGPA(!showGPA)}>
+                                        {showGPA ? <FaChevronDown className="text-sm font-thin"/> : <FaChevronRight className="text-sm"/>}
+                                    </IconButton>  
+                                </div>
+                                {showGPA && <div className="grid grid-cols-7 gap-y-1 w-full">
+                                    <p className="font-light text-sm description col-span-2">Degree</p>
+                                    <p className="font-light text-sm description">GPA</p>
+                                    <p className="font-light text-sm description">Max</p>
+                                    <p className="font-light text-sm description">Min</p>
+                                    <p className="font-light text-sm description">Passing</p>
+                                    <p className="font-light text-sm description">Cohort Mean</p>
+                                    {GPAs.map((gpaEntry, index) => (
+                                        <>
+                                            <p className="font-md text-sm  w-fit col-span-2 ">{(gpaEntry.degree)}</p>
+                                            <p className="font-light text-sm ">{gpaEntry.gpa}</p>
+                                            <p className="font-light text-sm ">{gpaEntry.max}</p>
+                                            <p className="font-light text-sm ">{gpaEntry.min}</p>
+                                            <p className="font-light text-sm ">{gpaEntry.passing}</p>
+                                            <p className="font-light text-sm ">{gpaEntry.mean ? `${gpaEntry.mean}±${gpaEntry.std}` : "N/A"}</p>
+                                        </>
+                                    ))}
+                                </div>}
+                            </div>
                         </div>
                         <div className="absolute top-0 md:right-[-70px] right-[-50px] justify-center items-center flex-col gap-1 text-center">
                             <IconButton style="SideBar" onClick={() => window.open(CV, "_blank")}>
@@ -42,18 +89,18 @@ function cvPage() {
                     <div className="w-full flex flex-row">
                         <p className="font-thin w-1/4 text-3xl section-header">{fixedLocatilization(sectionHeaders.skills)}</p>
                         <div className="cell-container">
-                            <p className="font-thin text-xl description mb-2">{fixedLocatilization(skillsSectionHeaders.technicalSkills)}</p>
+                            <p className="font-thin text-xl description mb-2">{fixedLocatilization(sectionSubHeaders.technicalSkills)}</p>
                             <div className="grid grid-cols-4 gap-3 gap-y-[8px]"> 
                                 {programmingSkills.map((skillsEntry, index) => (
                                     <div key={index} className="h-full flex items-center justify-center text-center gap-1 ">
-                                        <span className="font-extralight text-lg text-center institution leading-[1.0] skills-category">{skillsEntry.category}</span>
+                                        <span className="font-extralight text-lg text-center institution leading-[1.0] skills-category">{fixedLocatilization(skillsEntry.category)}</span>
                                     </div>
                                 ))}
                                 {programmingSkills.map((skillsEntry, index) => (
                                     <SkillsBlock key={index} skillsEntry={skillsEntry} />
                                 ))}
                             </div>
-                            <p className="font-thin text-xl description mb-2 mt-5">{fixedLocatilization(skillsSectionHeaders.languageSkills)}</p>
+                            <p className="font-thin text-xl description mb-2 mt-5">{fixedLocatilization(sectionSubHeaders.languageSkills)}</p>
                             {/* <p className="font-light text-sm description">German (Native), English (Native), Japanese (JLPT N1), French (Intermediate), Latin (Proficient) </p> */}
                             <div className="flex flex-row flex-wrap gap-x-2 gap-y-1">
                                 {languageSkills.map((languageEntry, index) => (
@@ -77,9 +124,15 @@ function cvPage() {
                         <p className="font-thin w-1/4 text-3xl section-header">{fixedLocatilization(sectionHeaders.experience)}</p>
                         {/* TODO make text of description nicer (mainly colour) */}
                         <div className="cell-container ">
-                            {experienceEntries.map((entry, index) => (
+                            <p className="font-thin text-xl description ">{fixedLocatilization(sectionSubHeaders.workExperience)}</p>
+                            {workExperience.map((entry, index) => (
                                 <EducationRow key={index} entry={entry} />
                             ))}
+                            <p className="font-thin text-xl description mt-2">{fixedLocatilization(sectionSubHeaders.otherExperience)}</p>
+                            {otherExperience.map((entry, index) => (
+                                <EducationRow key={index} entry={entry} />
+                            ))}
+
                         </div>
                     </div>
                 </div>

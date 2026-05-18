@@ -27,8 +27,19 @@ export interface EducationEntry {
     supervisors?: LocalizedString[];
 }
 
+export interface GPAEntry {
+    degree: string;
+    gpa: string;
+    max: string;
+    passing?: string;
+    min?: string;
+    mean?: string;
+    std?: string;
+    additionalComments?: string;
+}
+
 export interface SkillsEntry {
-    category: string;
+    category: LocalizedString;
     skills: Map<string, string>; // Skill name to logo path
 }
 
@@ -72,6 +83,14 @@ const mastersThesis : EducationEntry = {
     supervisors: [{en: "IVIA Lab", jp: "IVIA研究室"}, {en: "Miyao Lab", jp: "宮尾研究室"}],
 }
 
+const gymnasium : EducationEntry = {
+    description: {en: "Dual Diploma Swiss Matura and International Baccalaureate (IB)", jp: "Swiss MaturaとInternational Baccalaureate（IB）の二重学位"},
+    institution: {en: "Realgymnasium Rämibühl", jp: "Realgymnasium Rämibühl"},
+    location: "Zurich, Switzerland",
+    startDate: "August 2014",
+    endDate: "July 2020",
+}
+
 const gifuExchange : EducationEntry = {
     description: {en: "Exchange Semester", jp: "交換留学"},
     institution: {en: "Gifu Technical High School", jp: "岐阜工業高等学校"},
@@ -82,17 +101,55 @@ const gifuExchange : EducationEntry = {
 
 const waiter : EducationEntry = {
     description: {en:"Kitchen staff and waiter", jp: "接客とキッチンスタッフ"},
-    institution: {en:"Kanarimo", jp:"カナリモ"},
+    institution: {en:"Kanarimo", jp:"パンカフェカナリモ"},
     location: "Tokyo, Japan",
     startDate: "August 2025",
     endDate: "November 2025",
 }
-export const educationEntries : EducationEntry[] = [mastersThesis, exchangeSemester, masterDegree, bachelorDegree];
 
-export const experienceEntries : EducationEntry[] = [waiter, gifuExchange];
+const elderlyVolunteer : EducationEntry = {
+    description: {en:"Volunteering at an elderly residence", jp: "高齢者施設でのボランティア活動"},
+    institution: {en:"Altersheim Bürgerasyl-Pfrundhaus", jp:"Altersheim Bürgerasyl-Pfrundhaus"},
+    location: "Zurich, Switzerland",
+    startDate: "October 2017",
+    endDate: "October 2017",
+}
+
+const amnestyVolunteer : EducationEntry = {
+    description: {en:"Volunteering at an amnesty international event", jp: "アムネスティ・インターナショナルのイベントでのボランティア活動"},
+    institution: {en:"Amnesty International", jp:"Amnesty International"},
+    location: "Basel, Switzerland",
+    startDate: "February 2020",
+    endDate: "February 2020",
+}
+export const educationEntries : EducationEntry[] = [masterDegree, mastersThesis, exchangeSemester, bachelorDegree, gymnasium, gifuExchange];
+
+export const workExperience : EducationEntry[] = [waiter];
+
+export const otherExperience : EducationEntry[] = [amnestyVolunteer, elderlyVolunteer];
+
+const dataScienceHeader: LocalizedString = {
+    en: "Data Science",
+    jp: "データサイエンス",
+};
+
+const webDevHeader: LocalizedString = {
+    en: "Web Development",
+    jp: "ウェブ開発",
+};
+
+const programmingLanguagesHeader: LocalizedString = {
+    en: "Systems and OOP",
+    jp: "システムとオブジェクト",
+};
+
+const functionalProgrammingHeader: LocalizedString = {
+    en: "Functional",
+    jp: "関数型",
+};
 
 const dataScienceSkills : SkillsEntry = {
-    category: "Data Science",
+    category: dataScienceHeader,
     skills: new Map<string, string>([
         ["Python", pythonLogo],
         ["PyTorch", pytorchLogo],
@@ -101,7 +158,7 @@ const dataScienceSkills : SkillsEntry = {
 };
 
 const webDevSkills : SkillsEntry = {
-    category: "Web Development",
+    category: webDevHeader,
     skills: new Map<string, string>([
         ["React", reactLogo ],
         ["TypeScript", tsLogo],
@@ -112,7 +169,7 @@ const webDevSkills : SkillsEntry = {
 };
 
 const programmingLanguagesSkills : SkillsEntry = {
-    category: "Systems and OOP",
+    category: programmingLanguagesHeader,
     skills: new Map<string, string>([
         ["Java", javaLogo],
         ["C++", cppLogo],
@@ -122,7 +179,7 @@ const programmingLanguagesSkills : SkillsEntry = {
 };
 
 const functionalProgrammingSkills : SkillsEntry = {
-    category: "Functional ",
+    category: functionalProgrammingHeader,
     skills: new Map<string, string>([
         ["Haskell", haskellLogo],
         ["OCaml", ocamlLogo],
@@ -187,6 +244,7 @@ export const getLocalizedMonth = (month: string, language: string): string => {
 
 const locationMap: { [key: string]: string } = {
     "Zurich, Switzerland": "スイス、チューリッヒ",
+    "Basel, Switzerland": "スイス、バーゼル",
     "Tokyo, Japan": "日本、東京",
     "Gifu, Japan": "日本、岐阜",
 };
@@ -223,6 +281,8 @@ const experienceHeader: LocalizedString = {
     jp: "経験",
 };
 
+
+
 export const sectionHeaders : { [key: string]: LocalizedString } = {
     education: educationHeader,
     skills: skillsHeader,
@@ -239,7 +299,68 @@ const technicalSkillsHeader: LocalizedString = {
     jp: "技術",
 };
 
-export const skillsSectionHeaders : { [key: string]: LocalizedString } = {
+const workExperienceHeader: LocalizedString = {
+    en: "Work Experience",
+    jp: "職歴",
+};
+
+const otherExperienceHeader: LocalizedString = {
+    en: "Others",
+    jp: "その他",
+};
+
+export const sectionSubHeaders : { [key: string]: LocalizedString } = {
     languageSkills: languageSkillsHeader,
     technicalSkills: technicalSkillsHeader,
+    workExperience: workExperienceHeader,
+    otherExperience: otherExperienceHeader,
 };
+
+
+const masterGPA: GPAEntry = {
+    degree: "MSc Computer Science",
+    gpa: "5.57",
+    max: "6.0",
+    min: "1.0",
+    passing: "4.0",
+    mean: "5.34",
+    std: "0.3",
+};
+
+const exchangeGPA: GPAEntry = {
+    degree: "Exchange Semester (UTokyo)",
+    gpa: "A",
+    max: "A",
+    min: "F",
+    passing: "C",
+};
+
+const bachelorGPA: GPAEntry = {
+    degree: "BSc Computer Science",
+    gpa: "5.35",
+    max: "6.0",
+    min: "1.0",
+    passing: "4.0",
+    mean: "4.97",
+    std: "0.4",
+};
+
+const RGGPA: GPAEntry = {
+    degree: "Swiss Matura",
+    gpa: "5.48",
+    max: "6.0",
+    min: "1.0",
+    passing: "4.0",
+    additionalComments: "Best GPA in class",
+};
+
+const IBGPA: GPAEntry = {
+    degree: "International Baccalaureate",
+    gpa: "37",
+    max: "45",
+    min: "7",
+    passing: "24",
+    additionalComments: "Done in parallel to Swiss Matura",
+};
+
+export const GPAs : GPAEntry[] = [masterGPA, bachelorGPA, exchangeGPA, RGGPA, IBGPA];

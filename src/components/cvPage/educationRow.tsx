@@ -26,7 +26,7 @@ function EducationRow(props : EducationRowProps) {
     return (
         <div className="flex flex-row mb-2">
             <div className="flex flex-col w-1/4 mt-2 date font-sans">
-                <p className="font-light text-sm leading-none leading-none">{startDate} ー <span className="text-nowrap">{endDate}</span></p>
+                <p className="font-light text-sm leading-none leading-none">{startDate} - <span className="text-nowrap">{endDate}</span></p>
                 <p className="font-light text-sm leading-[1.1] mt-[1px]">{getLocalizedLocation(entry.location, language)}</p>
             </div>
             <div className="flex flex-col w-3/4 ml-2 gap-[1px]">

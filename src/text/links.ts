@@ -3,4 +3,5 @@ export const profileLinks = {
     github: "https://github.com/aboyleTD",
     portfolio: "https://aboyletd.github.io/aboyle.github.io/#/",
     googleScholar: "https://scholar.google.com/citations?user=yk70rtoAAAAJ&hl=de&oi=sra",
+    linkedin: "https://www.linkedin.com/in/alan-boyle-787481320/",
 };
