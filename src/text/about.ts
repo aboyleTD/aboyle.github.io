@@ -80,7 +80,12 @@ const aboutMe : LocalizedString = {
 
 export const getAboutMe = (): string => {
     const language = getLanguage();
-    return aboutMe[language];
+    if (language == "en") {
+        return aboutMe.en;
+    } else if (language == "jp") {
+        return aboutMe.jp;
+    }
+    return aboutMe.en;
 };
 
 

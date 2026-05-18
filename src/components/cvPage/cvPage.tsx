@@ -67,7 +67,7 @@ function cvPage() {
                                     <p className="font-light text-sm description">Min</p>
                                     <p className="font-light text-sm description">Passing</p>
                                     <p className="font-light text-sm description">Cohort Mean</p>
-                                    {GPAs.map((gpaEntry, index) => (
+                                    {GPAs.map((gpaEntry) => (
                                         <>
                                             <p className="font-md text-sm  w-fit col-span-2 ">{(gpaEntry.degree)}</p>
                                             <p className="font-light text-sm ">{gpaEntry.gpa}</p>
