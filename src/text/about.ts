@@ -82,7 +82,7 @@ export const getAboutMe = (): string => {
     const language = getLanguage();
     if (language == "en") {
         return aboutMe.en;
-    } else if (language == "jp") {
+    } else if (language == "jp" && aboutMe.jp) {
         return aboutMe.jp;
     }
     return aboutMe.en;
