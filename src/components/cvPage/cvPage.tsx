@@ -17,7 +17,7 @@ import { FaRegFilePdf } from "react-icons/fa6";
 import {FaChevronUp, FaChevronDown, FaChevronRight } from "react-icons/fa";
 import IconButton from "../auxiliary/IconButton";
 import "./cvPage.css";
-import CV_en from "../../assets/pdfs/cv.pdf";
+import CV_en from "../../assets/pdfs/cv_en.pdf";
 import CV_jp from "../../assets/pdfs/cv_jp.pdf";
 import { getLanguage } from "../../services/settings";
 
