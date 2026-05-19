@@ -128,6 +128,11 @@ export const workExperience : EducationEntry[] = [waiter];
 
 export const otherExperience : EducationEntry[] = [amnestyVolunteer, elderlyVolunteer];
 
+export const GPAheader: LocalizedString = {
+    en: "Grade Point Averages",
+    jp: "成績",
+};
+
 const dataScienceHeader: LocalizedString = {
     en: "Data Science",
     jp: "データサイエンス",

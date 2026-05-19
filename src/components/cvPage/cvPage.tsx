@@ -2,6 +2,7 @@ import { useState } from "react";
 import HeaderBar from "../headerBar";
 import { educationEntries, 
     GPAs,
+    GPAheader,
     workExperience, 
     otherExperience,
     programmingSkills, 
@@ -16,16 +17,19 @@ import { FaRegFilePdf } from "react-icons/fa6";
 import {FaChevronUp, FaChevronDown, FaChevronRight } from "react-icons/fa";
 import IconButton from "../auxiliary/IconButton";
 import "./cvPage.css";
-import CV from "../../assets/pdfs/cv.pdf";
+import CV_en from "../../assets/pdfs/cv.pdf";
+import CV_jp from "../../assets/pdfs/cv_jp.pdf";
 import { getLanguage } from "../../services/settings";
 
 function cvPage() {
     const language = getLanguage();
+    const CV = language === "jp" ? CV_jp : CV_en;
     const [showGPA, setShowGPA] = useState<boolean>(false);
     const [showEducationIndex, setShowEducationIndex] = useState<number>(4);
     const fixedLocatilization = (text: LocalizedString) => {
         return localizeString(text, language);
     }
+    
 
     const toggleEducationIndex = () => {
         if (showEducationIndex === educationEntries.length) {
@@ -55,7 +59,7 @@ function cvPage() {
                             </div>
                             <div className="mt-4 w-full">
                                 <div className="flex flex-row items-center gap-1 leading-none mb-1">
-                                    <span className="institution font-thin text-xl ">Grade Point Averages</span>
+                                    <span className="institution font-thin text-xl ">{fixedLocatilization(GPAheader)}</span>
                                     <IconButton style="Inline" onClick={() => setShowGPA(!showGPA)}>
                                         {showGPA ? <FaChevronDown className="text-sm font-thin"/> : <FaChevronRight className="text-sm"/>}
                                     </IconButton>  
@@ -69,12 +73,12 @@ function cvPage() {
                                     <p className="font-light text-sm description">Cohort Mean</p>
                                     {GPAs.map((gpaEntry) => (
                                         <>
-                                            <p className="font-md text-sm  w-fit col-span-2 ">{(gpaEntry.degree)}</p>
+                                            <p className="font-md text-sm  w-fit col-span-2 mr-2">{(gpaEntry.degree)}</p>
                                             <p className="font-light text-sm ">{gpaEntry.gpa}</p>
                                             <p className="font-light text-sm ">{gpaEntry.max}</p>
                                             <p className="font-light text-sm ">{gpaEntry.min}</p>
                                             <p className="font-light text-sm ">{gpaEntry.passing}</p>
-                                            <p className="font-light text-sm ">{gpaEntry.mean ? `${gpaEntry.mean}±${gpaEntry.std}` : "N/A"}</p>
+                                            <p className="font-light text-sm ">{gpaEntry.mean ? `${gpaEntry.mean}±${gpaEntry.std}` : "-"}</p>
                                         </>
                                     ))}
                                 </div>}

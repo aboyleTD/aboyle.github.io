@@ -3,6 +3,7 @@ import { profileLinks } from "../../text/links";
 import { FaGithub } from "react-icons/fa6";
 import { SiGooglescholar } from "react-icons/si";
 import { HiOutlineMail } from "react-icons/hi";
+import { FaLinkedin } from "react-icons/fa";
 
 import { getAboutMe, getSelfImg } from "../../text/about";
 
@@ -33,6 +34,7 @@ function AboutMe() {
                             <a className="" href={`mailto:${profileLinks.email}`} target="_blank"><HiOutlineMail /></a>
                             <a className="" href={profileLinks.github} target="_blank"><FaGithub /></a>
                             <a className="" href={profileLinks.googleScholar} target="_blank"><SiGooglescholar /></a>
+                            <a className="" href={profileLinks.linkedin} target="_blank"><FaLinkedin /></a>
                         </div>
                     </div>
                 </div>

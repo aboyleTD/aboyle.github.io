@@ -34,6 +34,7 @@ const cafgaLinks = new Map<string, string>([
     ["Paper", "https://aclanthology.org/2025.emnlp-demos.32/"],
     ["Repository", "https://github.com/explain-llm/CafGa"],
     ["Demo", "https://cafga.ivia.ch/"],
+    ["Video", "https://www.youtube.com/watch?v=0nuAJhMITV4"],
     // ["Poster", "https://your-website.com/cafga-slides.pdf"]
 ]);
 
