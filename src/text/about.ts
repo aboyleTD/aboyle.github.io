@@ -72,13 +72,13 @@ const aboutMe : LocalizedString = {
     I started my master's degree with an exchange at the Miyao Lab at the University of Tokyo, where I delved into cutting-edge research in NLP. Back at the ETH, I published two papers under the IVIA lab under Prof. Mennatallah El-Assady at the intersection of NLP and interactive machine learning, while continuing my studies on advanced machine learning topics. \n
     Finally, I returned to the Miyao lab to write my master's thesis under joint supervision with the IVIA lab. In my thesis I developed a method for measuring the limitations of XAI methods in explaining AI models, particularly large language models.`,
     
-    jp: `私はAIシステムの開発と解釈に専門性を持つコンピュータサイエンティストでございます。コンピュタービジョンや自然言語処理や解釈可能性を含めて、機械学習全般に広い強みをお持ち致します。
+    jp: `私はAIシステムの開発と解釈に専門性を持つコンピュータサイエンティストでございます。コンピュータビジョン、自然言語処理、解釈可能性を含む機械学習全般に幅広い強みを持っております。
 
-   学士課程では、コンピュータサイエンスの強固な理論的基盤を築きまして、学士の終わりに機械学習に集中することに決めました。カリキュラムより一年早く機械学習の入門コースを受講し、Olga Sorkine-Hornung教授のIGラボでNeural Motion Retargetingにおける学士論文を作成致しました。
+　学士課程では、コンピュータサイエンスの強固な理論的基盤を築き、学士課程の終わりに機械学習に専念することを決意いたしました。カリキュラムより一年早く機械学習の入門コースを受講し、Olga Sorkine-Hornung教授のIGラボにてNeural Motion Retargetingに関する学士論文を執筆いたしました。
 
-   修士課程は東京大学の宮尾研究室での交換留学から始まり、自然言語処理の最先端研究を学ばせていただきました。ETHに戻ってからは、Mennatallah El-Assady教授のIVIAラボで自然言語処理とインタラクティブ機械学習の交点で二本の論文を発表し、引き続き先進的な機械学習のトピックをお学び致しました。
+　修士課程は東京大学の宮尾研究室への交換留学から始まり、自然言語処理の最先端研究に携わりました。ETHに戻ってからは、Mennatallah El-Assady教授のIVIAラボにて自然言語処理とインタラクティブ機械学習の交点で二本の論文を発表し、引き続き先端的な機械学習のトピックを学んでまいりました。その中で特にコンピュータビジョンと自然言語処理に注力いたしました。
 
-   最後に、IVIAラボとの共同指導のもとで宮尾研究室に戻り修士論文を作成致しました。論文では、特に大規模言語モデルに対するAIモデルの解釈可能性におけるXAI手法の理論的な限界を測定する方法を開発致しました。
+　最後に、IVIAラボとの共同指導のもと、宮尾研究室に戻り修士論文を執筆いたしました。論文では、特に大規模言語モデルに対するAIモデルの解釈可能性におけるXAI手法の理論的な限界を測定する手法を開発いたしました。
 `,
 }
 
