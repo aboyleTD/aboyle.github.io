@@ -25,7 +25,7 @@ const englishScript: Script = {
         "What kind of projects have you worked on?"
     ],
     aboutMeFollowUps: [
-        "My main interests are  NLP, XAI, and Human-AI interaction.",
+        "My main interests are NLP, CV, XAI, and Human-AI interaction.",
         "I speak German, English, and Japanese.",
         "I have helped develop novel AI models, explainability methods, and user interfaces.",
     ],
@@ -37,19 +37,19 @@ const englishScript: Script = {
 const japaneseScript: Script = {
     greetings: "こんにちは、アランと申します。",
     greetingsQ: "こんにちは、どんな活躍をされていますか？",
-    aboutMe: "AIシステムの開発と洞察をご提供致します。",
+    aboutMe: "AIシステムの開発と解釈をご提供いたします。",
     aboutMeQs: [
         "どんなことに興味がありますか？",
         "どの言語が話せますか？",
         "どんなプロジェクトに携わってきましたか？"
     ],
     aboutMeFollowUps: [
-        "主な興味はNLP、XAI、人間とAIの相互作用でございます。",
+        "主な興味はNLP、CV、XAI、人間とAIの相互作用です。",
         "ドイツ語、英語、日本語が話せます。",
         "新しいAIモデル、解釈方法、ユーザーインターフェースの開発に携わってきました。",
     ],
     closerQ: "他にも教えてください。",
-    closer: "詳しくは他の部分もご覧ください 😉",
+    closer: "詳しくはサイトをご覧ください 😉",
     reset: "もう一度"
 };
 
